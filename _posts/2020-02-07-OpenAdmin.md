@@ -6,7 +6,7 @@ categories: hackthebox
 ---
 OpenAdmin
 ===
-![OpenAdmin](file:///home/lassa97/Pictures/OpenAdmin.png)
+![OpenAdmin](/assets/images/OpenAdmin/OpenAdmin.png)
 
 ---
 ### Nmap
