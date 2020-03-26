@@ -1,0 +1,101 @@
+.lassault_menu {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 400px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  /*border-radius: 0px 30px 0px 0px;*/
+}
+
+
+/*.lassault_menu h1 {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}*/
+
+.lassault_menu a {
+  color: #00FF33;
+  text-decoration: none;
+}
+
+.lassault_menu a:hover {
+  color: #F1F1F1;
+}
+
+.lassault_menu .icon {
+  padding-left: 150px
+}
+
+.lassault_menu .lassault_name {
+  padding-left: 140px;
+  padding-top: 20px
+}
+
+.lassault_menu p {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #33FF33;
+  font-weight: bold;
+  text-align: center;
+}
+
+.lassault_menu .lassault_about ul {
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #33FF33;
+  list-style: none;
+  width: 220px;
+  text-align: center;
+}
+
+.lassault_menu .lassault_calendar {
+  background-color: #1F1F2E;
+  color: white;
+  position: fixed;
+  bottom: 160px;
+  left: 25px;
+  width: 300px;
+  height: 275px;
+  padding: 10px 25px 10px 25px;
+  align-items: center;
+  border-radius: 25px 50px;
+  text-align: center;
+  border-style: solid;
+  border-color: #33FF33;
+}
+
+.lassault_menu .lassault_calendar iframe {
+  /*border-color: #33FF33;*/
+  border-radius: 15px 30px;
+  width: 300px;
+  height: 250px;
+}
+
+.lassault_menu .lassault_stats {
+  background-color: #1F1F2E;
+  color: white;
+  position: fixed;
+  bottom: 25px;
+  left: 50px;
+  width: 200px;
+  padding: 25px 50px 25px 50px;
+  align-items: center;
+  border-radius: 25px 50px;
+  text-align: center;
+  border-style: solid;
+  border-color: #33FF33;
+}
+
+/*.lassault_menu .lassault_stats span {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+}*/
