@@ -126,6 +126,6 @@
 /*=============================================================================*/
 
 body {
-  background-image: url("../multimedia/staircase.jpg");
+  background-image: url("staircase.jpg");
   background-size: cover;
 }
