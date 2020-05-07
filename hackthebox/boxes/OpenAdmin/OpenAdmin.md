@@ -122,6 +122,7 @@ Finally, we login with `ssh` using our private key and we have the user flag.
 > lassault@kakia:~$ ssh joanna@10.10.10.171 -i OpenAdmin.key
 >
 > joanna@openadmin:~$ cat /home/joanna/user.txt
+
 `HTB{c9b2cf07d40807e62af62660f0c81b5f}`
 
 ---
@@ -136,4 +137,5 @@ We are going to use [GTFOBins](https://gtfobins.github.io/) to gain privilegies.
 Following the instructions for `nano`, we have our root shell and we can own the root flag.
 
 > root@openadmin:~# cat /root/root.txt
+
 `HTB{2f907ed450b361b2c2bf4e8795d5b561}`
