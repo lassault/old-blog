@@ -2,6 +2,8 @@ creds.txt
 Custom_Calendar.zip
 fake_badges/
 guide.txt
+hackthebox/boxes/*/*.png
+hackthebox/challenges/*/*.svg
 jekyll/
 logos/
 multimedia/
