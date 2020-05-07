@@ -1,10 +1,15 @@
+about/cv.pdf_original
+about/pandoc-moderncv
 creds.txt
 Custom_Calendar.zip
 fake_badges/
 guide.txt
 hackthebox/boxes/*/*.png
 hackthebox/challenges/*/*.svg
+html/
+index.html.old
 jekyll/
+js/index.js.old
 logos/
 multimedia/
 portfolio_black_template.html
