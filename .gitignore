@@ -1,17 +1,6 @@
-about/cv.pdf_original
-about/pandoc-moderncv
-*.txt
+*.html
+*.old
 *.png
 *.svg
-*.old
+*.txt
 *.zip
-*.html
-Coming Soon/
-coming-sssoon-page-master/
-fake_badges/
-jekyll/
-logos/
-multimedia/
-portfolio_jackson_template/
-space_war/
-TLMgram/
