@@ -146,7 +146,8 @@
         }, 800);
       }, 1500);
 
-      blog = $.getJSON("https://fermin.lassa.net/dist/blog.json").responseJSON;
+      blog = $.getJSON("https://fermin.lassa.net/dist/blog.json");
+      blog = blog.responseJSON;
       
       /*if (blog.length == 0) {
         document.getElementById("blog_section").style.display = "none";
