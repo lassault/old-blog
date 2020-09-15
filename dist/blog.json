@@ -1,7 +1,18 @@
-{
-    "url_title": "testing",
-    "title": "My first blog",
-    "sub_title": "My subtitle",
-    "top_image": "top_image.jpeg",
-    "visible": true
-}
+[
+    {
+        "url_title": "testing",
+        "title": "My first blog",
+        "sub_title": "My subtitle",
+        "timestamp": "12:03 15-04-2020",
+        "top_image": "top_image.jpeg",
+        "visible": true
+    },
+    {
+        "url_title": "testing_2",
+        "title": "My second blog",
+        "sub_title": "My second subtitle",
+        "timestamp": "07:42 28-07-2020",
+        "top_image": "top_image.jpeg",
+        "visible": true
+    }
+]

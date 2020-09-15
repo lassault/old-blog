@@ -146,41 +146,21 @@
         }, 800);
       }, 1500);
 
-      blog = $.getJSON("https://fermin.lassa.net/dist/blog.json");
-      blog = blog.responseJSON;
-      
-      /*if (blog.length == 0) {
-        document.getElementById("blog_section").style.display = "none";
-      } else {
-        for (var i = 0; i < blog.length; i++) {*/
-          $("#blogs").append(`
-            <a href="./blog/${blog.url_title}/" target="_blank">
-              <section>
-                <img src="./blog/${blog.url_title}/${blog.top_image}">
-                <div class="blog_container">
-                  <div class="section_title">${blog.title}</div>
-                  <div class="about_section">
-                    ${blog.sub_title}
-                  </div>
-                </div>
-              </section>
-            </a>
-            `
-          );
-        //}
-      //}
-
-      /*
-      $.getJSON("http://fermin.lassa.net/dist/blog.json", function(blog) {
-        blog = blog || [];
-        if (blog.length == 0) {
-          return (document.getElementById("blog_section").style.display =
-            "none");
-        }
-        for (var i = 0; i < blog.length; i++) {
-          $("#blogs").append(`
-            <a href="./blog/${blog[i].url_title}/" target="_blank">
-                <section>
+      $.ajax({
+        url: 'blog.json',
+        type: 'get',
+        dataType: 'json',
+        error: function(blog) {
+          document.getElementById("blog_section").style.display = "none";
+        },
+        success: function(blog) {
+          if (blog.length == 0) {
+            document.getElementById("blog_section").style.display = "none";
+          } else {
+            for (var i = 0; i < blog.length; i++) {
+              $("#blogs").append(`
+                <a href="./blog/${blog[i].url_title}/" target="_blank">
+                  <section>
                     <img src="./blog/${blog[i].url_title}/${blog[i].top_image}">
                     <div class="blog_container">
                         <div class="section_title">${blog[i].title}</div>
@@ -189,13 +169,12 @@
                         </div>
                     </div>
                 </section>
-            </a>
-            `);
+              </a>
+              `)
+            }
+          }
         }
-      }).fail(function() {
-        return (document.getElementById("blog_section").style.display = "none");
       });
-      */
     </script>
 
     <script>
