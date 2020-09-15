@@ -2,7 +2,8 @@
  {
   "username": "lassa97",
   "name": "Fermin Lassa",
-  "userimg": "https://avatars1.githubusercontent.com/u/40122711?v=4",
+  "userimg": "https://raw.githubusercontent.com/lassa97/lassa97/master/my_octocat.png",
+  "iconimg": "https://raw.githubusercontent.com/lassa97/lassa97.github.io/master/icons/lassault_rounded.png",
   "sort": "star",
   "order": "asc",
   "includeFork": false,
@@ -10,9 +11,9 @@
   "types": [
    "owner"
   ],
-  "twitter": null,
+  "github": "lassa97", 
+  "spotify": "lassa97",
   "linkedin": "fermin-lassa-iglesias",
-  "medium": null,
-  "dribbble": null
+  "mail": "fermin@lassa.net"
  }
 ]
