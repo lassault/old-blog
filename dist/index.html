@@ -145,7 +145,32 @@
           document.getElementById("loading").style.display = "none";
         }, 800);
       }, 1500);
-      $.getJSON("blog.json", function(blog) {
+
+      blog = $.getJSON("https://fermin.lassa.net/dist/blog.json").responseJSON;
+      
+      /*if (blog.length == 0) {
+        document.getElementById("blog_section").style.display = "none";
+      } else {
+        for (var i = 0; i < blog.length; i++) {*/
+          $("#blogs").append(`
+            <a href="./blog/${blog[i].url_title}/" target="_blank">
+              <section>
+                <img src="./blog/${blog[i].url_title}/${blog[i].top_image}">
+                <div class="blog_container">
+                  <div class="section_title">${blog[i].title}</div>
+                  <div class="about_section">
+                    ${blog[i].sub_title}
+                  </div>
+                </div>
+              </section>
+            </a>
+            `
+          );
+        //}
+      //}
+
+      /*
+      $.getJSON("http://fermin.lassa.net/dist/blog.json", function(blog) {
         blog = blog || [];
         if (blog.length == 0) {
           return (document.getElementById("blog_section").style.display =
@@ -169,6 +194,7 @@
       }).fail(function() {
         return (document.getElementById("blog_section").style.display = "none");
       });
+      */
     </script>
 
     <script>
