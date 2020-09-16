@@ -4,6 +4,7 @@
         "title": "My Github README",
         "sub_title": "Wanna have some fancy README like mine? Follow this how-to guide.",
         "top_image": "github-readme.png",
+        "blog_time": "15/09/2020",
         "visible": true
     },
     {
@@ -11,6 +12,7 @@
         "title": "My diary of Seoul",
         "sub_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "top_image": "seoul.jpg",
+        "blog_time": "22/07/2020",
         "visible": true
     },
     {
@@ -18,6 +20,7 @@
         "title": "Something about cyberpunk",
         "sub_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "top_image": "cyberpunk.jpg",
+        "blog_time": "01/04/2020",
         "visible": true
     }
 ]

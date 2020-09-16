@@ -69,7 +69,7 @@
             "username_blog"
           ).innerHTML = `<span style="display:${
             user[0].name == null || !user[0].name ? "none" : "block"
-          };">${user[0].name}</span>@${user[0].username}<b id="blog_time"></b>`;
+          };">${user[0].name}</span>@${user[0].username}<br><b id="blog_time"><i class="fas fa-calendar-alt"></i>&nbsp; 22/07/2020</b>`;
 
           if ((user[0].theme = "dark.css")) {
             document.querySelector("#background_overlay").style.background =
