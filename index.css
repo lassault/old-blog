@@ -554,13 +554,13 @@ body {
       rgba(10, 10, 10, 0.3),
       rgb(10, 10, 10, 1)
     ),
-    url("./media/airport.jpg");
+    url("./media/cyberpunk.jpg");
   --background-background: linear-gradient(
       0deg,
       rgba(10, 10, 10, 1),
       rgba(10, 10, 10, 0.6)
     ),
-    url("./media/airport.jpg") center center fixed;
+    url("./media/cyberpunk.jpg") center center fixed;
   --height: 50vh;
 }
 
@@ -591,6 +591,6 @@ body {
         rgba(10, 10, 10, 1),
         rgba(10, 10, 10, 0)
       ),
-      url("./media/airport.jpg") !important;
+      url("./media/cyberpunk.jpg") !important;
   }
 }
