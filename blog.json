@@ -2,8 +2,22 @@
     {
         "url_title": "github-readme",
         "title": "My Github README",
-        "sub_title": "Wanna have some fancy README like mine?",
+        "sub_title": "Wanna have some fancy README like mine? Follow this how-to guide.",
         "top_image": "github-readme.png",
+        "visible": true
+    },
+    {
+        "url_title": "seoul",
+        "title": "My diary of Seoul",
+        "sub_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "top_image": "seoul.jpg",
+        "visible": true
+    },
+    {
+        "url_title": "cyberpunk",
+        "title": "Something about cyberpunk",
+        "sub_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "top_image": "cyberpunk.jpg",
         "visible": true
     }
 ]

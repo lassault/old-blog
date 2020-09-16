@@ -10,7 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="https://raw.githubusercontent.com/lassa97/lassa97.github.io/master/icons/lassault_rounded.png" type="image/png">
+    <link rel="stylesheet" href="master.css">
+    <link rel="icon" href="./media/lassault_icon.png" type="image/png">
   </head>
 
   <body>
@@ -18,9 +19,9 @@
       <div id="spinner"></div>
     </div>
     <div id="profile">
-      <div id="profile_img" style="background: url(https://raw.githubusercontent.com/lassa97/lassa97/master/my_octocat.png) center;"></div>
+      <div id="profile_img" style="background: url(./media/my_octocat.png) center;"></div>
       <div id="username"><span style="display:block;">Fermin Lassa</span><a href="https://github.com/lassa97">@lassa97</a></div>
-      <div id="userbio" style="display: block;">I'm <a href="../about/" target="_blank" style="text-decoration: none">Fermin Lassa</a>, an IT student that 💚 coding 👨‍💻 and beers 🍻</div>
+      <div id="userbio" style="display: block;">I'm <a href="./about/" target="_blank" style="text-decoration: none">Fermin Lassa</a>, an IT student that 💚 coding 👨‍💻 and beers 🍻</div>
       <div id="about">
                 <span style="display:block;"><i class="fas fa-users"></i> &nbsp; <a href="http://www.unavarra.es">UPNA</a></span>
                 <span style="display:block;"><i class="fas fa-envelope"></i> &nbsp; <a href="mailto:fermin@lassa.net">Contact me</a></span>
@@ -37,6 +38,63 @@
       </div>
     </div>
     <div id="display">
+      <div id="education">
+        <h1>Education</h1>
+        <div class="projects" id="education_section">
+          <a href="https://www.unavarra.es" target="_blank">
+            <section>
+              <div class="section_title">Bachelor's degree in Telecommunications Engineering</div>
+              <div class="about_section">
+                <span style="display:inline-block;"><img src="./media/upna.png" class="icon">&nbsp; Public University of Navarra</span>
+              </div>
+              <div class="bottom_section">
+                  <span style="display:inline-block;"><i class="fa fa-calendar"></i>&nbsp; 09/2015 - 09/2020</span>
+                  <span><i class="fa fa-map-marker-alt"></i>&nbsp; Pamplona</span>
+                  <span><i class="fas fa-code-branch"></i>&nbsp; 0</span>
+              </div>
+            </section>
+          </a>                  
+          <a href="https://www.yonsei.ac.kr" target="_blank">
+            <section>
+                <div class="section_title">Computer Science - Study abroad program</div>
+                <div class="about_section">
+                <span style="display:inline-block;"><img src="./media/yonsei.png" class="icon">&nbsp; Yonsei University</span>
+                </div>
+                <div class="bottom_section">
+                    <span style="display:inline-block;"><i class="fa fa-calendar"></i>&nbsp; 03/2020 - 06/2020</span>
+                    <span><i class="fa fa-map-marker-alt"></i>&nbsp; Seoul</span>
+                    <span><i class="fas fa-code-branch"></i>&nbsp; 0</span>
+                </div>
+            </section>
+          </a>
+          <a href="https://www.unavarra.es" target="_blank">
+            <section>
+              <div class="section_title">Diploma of Specialization in IoT and Industry 4.0</div>
+              <div class="about_section">
+                <span style="display:inline-block;"><img src="./media/upna.png" class="icon">&nbsp; Public University of Navarra</span>
+              </div>
+              <div class="bottom_section">
+                  <span style="display:inline-block;"><i class="fa fa-calendar"></i>&nbsp; 09/2018 - 06/2020</span>
+                  <span><i class="fa fa-map-marker-alt"></i>&nbsp; Pamplona</span>
+                  <span><i class="fas fa-code-branch"></i>&nbsp; 0</span>
+              </div>
+            </section>
+          </a>
+          <a href="https://www.unavarra.es" target="_blank">
+            <section>
+              <div class="section_title">Master's in Telecommunications Engineering</div>
+              <div class="about_section">
+                <span style="display:inline-block;"><img src="./media/upna.png" class="icon">&nbsp; Public University of Navarra</span>
+              </div>
+              <div class="bottom_section">
+                  <span style="display:inline-block;"><i class="fa fa-calendar"></i>&nbsp; 09/2020 - 06/2022</span>
+                  <span><i class="fa fa-map-marker-alt"></i>&nbsp; Pamplona</span>
+                  <span><i class="fas fa-code-branch"></i>&nbsp; 0</span>
+              </div>
+            </section>
+          </a>
+        </div>
+      </div>
       <div id="work">
         <h1>Work</h1>
         <div class="projects" id="work_section">
@@ -158,7 +216,7 @@
               $("#blogs").append(`
                 <a href="./blog/${blog[i].url_title}/" target="_blank">
                   <section>
-                    <img src="./blog/${blog[i].url_title}/${blog[i].top_image}">
+                    <img src="./blog/${blog[i].url_title}/${blog[i].top_image}" style="height: 385px">
                     <div class="blog_container">
                         <div class="section_title">${blog[i].title}</div>
                         <div class="about_section">
@@ -175,6 +233,16 @@
     </script>
 
     <script>
+      const magicEducationGrid = new MagicGrid({
+        container: "#education_section",
+        animate: false,
+        gutter: 30, // default gutter size
+        static: true,
+        useMin: false,
+        maxColumns: 2,
+        useTransform: true
+      });
+
       const magicProjectsGrid = new MagicGrid({
         container: "#work_section",
         animate: false,
@@ -196,6 +264,7 @@
       });
 
       $("document").ready(() => {
+        magicEducationGrid.listen();
         magicProjectsGrid.listen();
         //magicForksGrid.listen();
       });

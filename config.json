@@ -2,8 +2,8 @@
  {
   "username": "lassa97",
   "name": "Fermin Lassa",
-  "userimg": "https://raw.githubusercontent.com/lassa97/lassa97/master/my_octocat.png",
-  "iconimg": "https://raw.githubusercontent.com/lassa97/lassa97.github.io/master/icons/lassault_rounded.png",
+  "userimg": "./media/my_octocat.png",
+  "iconimg": "./media/lassault_icon.png",
   "sort": "star",
   "order": "asc",
   "includeFork": false,

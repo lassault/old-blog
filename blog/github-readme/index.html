@@ -11,7 +11,7 @@
     <div id="loading">
       <div id="spinner"></div>
     </div>
-    <a href="/dist" class="go_back"><i class="fas fa-arrow-left"></i></a>
+    <a href="/" class="go_back"><i class="fas fa-arrow-left"></i></a>
     <div id="background_overlay"></div>
     <div id="background" style="background: url(github-readme.png) center;"></div>
     <table id="profile_blog">
@@ -51,17 +51,17 @@
         type: 'get',
         dataType: 'json',
         error: function(blog) {
-          console.log("Some error");
+          //console.log("Some error");
         },
         success: function(user) {
           var icon = document.createElement("link");
           icon.setAttribute("rel", "icon");
-          icon.setAttribute("href", user[0].iconimg);
+          icon.setAttribute("href", `../../${user[0].iconimg}`);
           icon.setAttribute("type", "image/png");
           document.getElementsByTagName("head")[0].appendChild(icon);
           document.getElementById(
             "profile_img_blog"
-          ).style.background = `url('${user[0].userimg}') center center`;
+          ).style.background = `url('../../${user[0].userimg}') center center`;
           document.getElementById(
             "username_blog"
           ).innerHTML = `<span style="display:${
