@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
     <link rel="stylesheet" href="light.css">
+    <link rel="stylesheet" href="dark.css">
     <link rel="icon" href="./media/lassault_icon.png" type="image/png">
   </head>
 
@@ -300,15 +301,20 @@
     </script>
 
     <script>
-      var theme_switcher = document.getElementById("dark-light-switch");
-      theme_switcher.addEventListener("click", change_theme);
+      var style = "light";
+      var lightTheme = document.styleSheets[2];
+      var darkTheme = document.styleSheets[3];
+      darkTheme.disabled = true;
+      var themeSwitcher = document.getElementById("dark-light-switch");
+      themeSwitcher.addEventListener("click", change_theme);
 
       function change_theme() {
-        var css = document.getElementsByTagName("link")[2];
-        if (css.href.includes("light.css")) {
-          css.setAttribute("href", "dark.css");
+        if (style.includes("light")) {
+          darkTheme.disabled = false;
+          style = "dark";
         } else {
-          css.setAttribute("href", "light.css");
+          darkTheme.disabled = true;
+          style = "light";
         }
       }
     </script>
