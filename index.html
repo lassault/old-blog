@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="light.css">
     <link rel="icon" href="./media/lassault_icon.png" type="image/png">
   </head>
 
@@ -19,6 +18,9 @@
       <div id="spinner"></div>
     </div>
     <div id="profile">
+      <span id="dark-light-switch" title="Toggle dark or light colorscheme" style="position: absolute; left: 0; top: 0; margin: 1em;">
+        <i class="far fa-moon" aria-hidden="true"></i>
+      </span>
       <div id="profile_img" style="background: url(./media/my_octocat.png) center;"></div>
       <div id="username"><span style="display:block;">Fermin Lassa</span><a href="https://github.com/lassa97">@lassa97</a></div>
       <div id="userbio" style="display: block;">I'm <a href="./about/" target="_blank" style="text-decoration: none">Fermin Lassa</a>, an IT student that 💚 coding 👨‍💻 and beers 🍻</div>
@@ -38,11 +40,6 @@
       </div>
     </div>
     <div id="display">
-      <!--
-      <span name="switch" id="dark-light-switch" title="Toggle dark or light colorscheme">
-        <i class="far fa-moon" aria-hidden="true"></i>
-      </span>
-      -->
       <div id="education">
         <h1>Education and Training</h1>
             <div class="projects" id="education_section">
@@ -205,7 +202,7 @@
         <div id="blogs"></div>
       </div>
       <div id="footer">
-        <a href="https://github.com/lassa97" target="_blank">made on earth by a human</a>
+        <span><img src="./media/lassault_icon.png" class="icon">&nbsp; © 2020 lassault</span>
       </div>
     </div>
     <script type="text/javascript">
@@ -301,5 +298,20 @@
         //magicForksGrid.listen();
       });
     </script>
+
+    <script>
+      var theme_switcher = document.getElementById("dark-light-switch");
+      theme_switcher.addEventListener("click", change_theme);
+
+      function change_theme() {
+        var css = document.getElementsByTagName("link")[2];
+        if (css.href.includes("light.css")) {
+          css.setAttribute("href", "dark.css");
+        } else {
+          css.setAttribute("href", "light.css");
+        }
+      }
+    </script>
+
   </body>
 </html>

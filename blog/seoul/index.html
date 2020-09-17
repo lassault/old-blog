@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -6,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../index.css"></head>
+    <link rel="stylesheet" href="../../dark.css">
+  </head>
   <body>
     <div id="loading">
       <div id="spinner"></div>
@@ -25,6 +28,9 @@
       </tbody>
     </table>
     <div id="blog-display">
+      <span id="dark-light-switch" title="Toggle dark or light colorscheme" style="position: absolute; left: 0; top: 0; margin: 1em; color: white;">
+        <i class="far fa-moon" aria-hidden="true"></i>
+      </span>
       <h1 id="blog_title">My diary of Seoul</h1>
       <h2 id="blog_sub_title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
       <div id="blog">
@@ -36,7 +42,7 @@
       </div>
     </div>
     <div id="footer_blog">
-      <a href="https://github.com/lassa97" target="_blank">made on earth by a human</a>
+      <span><img src="../../media/lassault_icon.png" class="icon">&nbsp; © 2020 lassault</span>
     </div>
     <script type="text/javascript">
       setTimeout(function() {
@@ -81,6 +87,5 @@
         }
       });
     </script>
-  
-
-</body></html>
+  </body>
+</html>
