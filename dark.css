@@ -355,6 +355,23 @@ body {
   font-size: 15px;
 }
 
+.skills {
+  margin-left: -15px;
+  /* align section w/ heading above */
+}
+
+.skills .link {
+  /* 30px is the gutter size in magic grid */
+  width: calc(49% - 30 px);
+  /* 49% avoids a weird single column on some wide screens */
+  display: flex;
+}
+
+.skills a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .socials {
   color: #fff;
   text-decoration: none;

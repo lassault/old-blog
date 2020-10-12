@@ -23,20 +23,45 @@
         <i class="far fa-moon" aria-hidden="true"></i>
       </span>
       <div id="profile_img" style="background: url(./media/my_octocat.png) center;"></div>
-      <div id="username"><span style="display:block;">Fermin Lassa</span><a href="https://github.com/lassa97">@lassa97</a></div>
-      <div id="userbio" style="display: block;">I'm <a href="./about/" target="_blank" style="text-decoration: none">Fermin Lassa</a>, an IT student that 💚 coding 👨‍💻 and beers 🍻</div>
+      <!--
+      <div id="username"><span style="display: block;"><a href="./about/">Fermin Lassa</a></span><i class="fab fa-github"></i>&nbsp;<a href="https://github.com/lassa97">@lassa97</a></div>
+      -->
+      <div id="username"><span style="display: block;"><a href="./about/">Fermin Lassa</a></span><a href="https://github.com/lassa97">@lassa97</a></div>
+      <!--
+      <div id="username"><span style="display: block;"><a href="./about/">Fermin Lassa</a></span></div>
+      -->
+    <!--
+      <div id ="userbio" style="display: block;">I'm an IT student that 💚 coding 👨‍💻 and beers 🍻</div>
+    -->
+      <div id="userbio" style="display: block;">
+        <span style="display: block;">I'm <a href="./about/" target="_blank" style="text-decoration: none">Fermin Lassa</a>, an IT student that 💚 coding 👨‍💻 and beers 🍻</span>
+        <!--<span style="display: block;">I have drinked 3 ☕ and 4 🍺 this year</span>-->
+      </div>
       <div id="about">
-                <span style="display:block;"><i class="fas fa-users"></i> &nbsp; <a href="http://www.unavarra.es">UPNA</a></span>
-                <span style="display:block;"><i class="fas fa-envelope"></i> &nbsp; <a href="mailto:fermin@lassa.net">Contact me</a></span>
-                <span style="display:block;"><i class="fas fa-link"></i> &nbsp; <a href="https://fermin.lassa.net">https://fermin.lassa.net</a></span>
-                <span style="display:block;"><i class="fas fa-map-marker-alt"></i> &nbsp;&nbsp; Pamplona</span>
-                <span style="display:block;"><i class="fas fa-user-tie"></i> &nbsp;&nbsp; Available for hire</span>
+                <!--
+                <span id="drink-stats" style="visibility: hidden;"><i class="fas fa-beer"></i>&nbsp; #beers <i class="fas fa-coffee"></i>&nbsp; #coffees</span>
+                -->
+                <!--<span style="display: block;"><i class="fas fa-users"></i>&nbsp; <a href="http://www.unavarra.es">UPNA</a></span>-->
+                <!--
+                <span style="display: block;"><i class="fas fa-building"></i>&nbsp; <a href="http://www.unavarra.es" target="_blank">UPNA</a></span>
+                <span style="display: block;"><i class="fas fa-globe"></i>&nbsp; Pamplona</span>
+                <span style="display: block;"><i class="fas fa-envelope"></i>&nbsp; <a href="mailto:fermin@lassa.net">Contact me</a></span>
+                <span style="display: block;"><i class="fas fa-briefcase"></i>&nbsp; Available for hire</span>
+                -->
                 <div class="socials">
-                <span style="display:block;"><a href="https://github.com/lassa97" target="_blank" class="socials"><i class="fab fa-github"></i></a></span>
-                <span style="display:block;"><a href="https://open.spotify.com/user/lassa97" target="_blank" class="socials"><i class="fab fa-spotify"></i></a></span>
-                <span style="display:block;"><a href="https://www.linkedin.com/in/fermin-lassa-iglesias/" target="_blank" class="socials"><i class="fab fa-linkedin-in"></i></a></span>
-                <span style="display:block;"><a href="mailto:fermin@lassa.net" target="_blank" class="socials"><i class="fas fa-envelope"></i></a></span>
-                <a href="https://open.spotify.com/user/lassa97"><img src="https://spotify-github-profile.vercel.app/api/view?uid=lassa97&cover_image=false"/></a>
+                  <span style="display: block;"><i class="fas fa-users"></i>&nbsp; <a href="http://www.unavarra.es" target="_blank">UPNA</a></span>
+                  <span style="display: block;"><a href="mailto:fermin@lassa.net" title="Email" class="social"><i class="fas fa-envelope"></i></a></span>
+                  <span style="display: block;"><a href="https://github.com/lassa97" title="GitHub" target="_blank" class="socials"><i class="fab fa-github"></i></a></span>
+                  <span style="display: block;"><a href="https://open.spotify.com/user/lassa97" title="Spotify" target="_blank" class="socials"><i class="fab fa-spotify"></i></a></span>
+                  <span style="display: block;"><a href="https://www.linkedin.com/in/fermin-lassa-iglesias/" title="LinkedIn" target="_blank" class="socials"><i class="fab fa-linkedin-in"></i></a></span>
+                  <span style="display: block;"><a href="https://app.hackthebox.eu/profile/138424" title="HackTheBox" target="_blank" class="socials"><i class="fas fa-cube"></i></a></span>
+                  <!--
+                  <span id="beer-stats" style="visibility: hidden;"><i class="fas fa-beer"></i>&nbsp; #</span>
+                  <span id="coffee-stats" style="visibility: hidden;"><i class="fas fa-coffee"></i>&nbsp; #</span>
+                  -->
+                </div>
+                <div id="spotify-stats" class="spotify-stats">
+                  <span id="spotify-track">#icon&nbsp; <a href="https://open.spotify.com/user/lassa97" target="_blank">#stats</a></span>
                 </div>
       </div>
     </div>
@@ -125,12 +150,8 @@
       </div>
       <div id="skills">
         <h1>Skills</h1>
-        <!--
-          Java, Python, PHP, C++, HTML, CSS, JavaScript, Git, MySQL, Bash, Linux
-          Extra: Grafana, Arduino, Raspberry Pi, Android Studio
-        -->
-        <div class="projects" id="skills_section">
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3AJava&type=Repositories" target="_blank">
+        <div class="skills" id="skills_section">
+                        <div class="link">
                           <section>
                             <div class="section_title">Java</div>
                             <div class="about_section">
@@ -138,11 +159,18 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 2+ years</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; SpaceWar, Coffeer, TLMgram, PenaPay</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://livevent.es" target="_blank">livEvent</a>, 
+                                  <a href="https://github.com/lassa97/SpaceWar" target="_blank">SpaceWar</a>, 
+                                  <a href="https://github.com/lassa97/Coffeer" target="_blank">Coffeer</a>, 
+                                  <a href="https://github.com/lassa97/TLMgram" target="_blank">TLMgram</a>, 
+                                  <a href="https://github.com/lassa97/PenaPay" target="_blank">PenaPay</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3APython&type=Repositories" target="_blank">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">Python</div>
                             <div class="about_section">
@@ -150,11 +178,15 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 1 year</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; 100tipy, OSniffy</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://github.com/lassa97/100tipy" target="_blank">100tipy</a>, 
+                                  <a href="https://github.com/lassa97/OSniffy" target="_blank">OSniffy</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3APHP&type=Repositories" target="_blank">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">PHP</div>
                             <div class="about_section">
@@ -162,10 +194,13 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 1+ year</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; livEvent</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://livevent.es" target="_blank">livEvent</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
+                        </div>
                         <!--
                         <a href="https://github.com/search?q=user%3Alassa97+language%3AC++&type=Repositories" target="_blank">
                           <section>
@@ -180,7 +215,7 @@
                           </section>
                         </a>  
                         -->
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3AHTML&type=Repositories" target="_blank">
+                        <div class="link">
                           <section>
                             <div class="section_title">HTML</div>
                             <div class="about_section">
@@ -188,11 +223,15 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 6 months</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; livEvent, lassa97.github.io</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://livevent.es" target="_blank">livEvent</a>, 
+                                  <a href="https://github.com/lassa97/lassa97.github.io" target="_blank">lassa97.github.io</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3ACSS&type=Repositories" target="_blank">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">CSS</div>
                             <div class="about_section">
@@ -200,11 +239,15 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 6 months</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; livEvent, lassa97.github.io</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://livevent.es" target="_blank">livEvent</a>, 
+                                  <a href="https://github.com/lassa97/lassa97.github.io" target="_blank">lassa97.github.io</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3AJavaScript&type=Repositories" target="_blank">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">JavaScript</div>
                             <div class="about_section">
@@ -212,11 +255,15 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 6 months</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; livEvent, lassa97.github.io</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://livevent.es" target="_blank">livEvent</a>, 
+                                  <a href="https://github.com/lassa97/lassa97.github.io" target="_blank">lassa97.github.io</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">Git</div>
                             <div class="about_section">
@@ -226,8 +273,8 @@
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 1+ years</span>
                             </div>
                           </section>
-                        </a>
-                        <a href="">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">MySQL</div>
                             <div class="about_section">
@@ -235,11 +282,16 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 2+ years</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; livEvent, 100tipy, OSniffy</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://livevent.es" target="_blank">livEvent</a>, 
+                                  <a href="https://github.com/lassa97/100tipy" target="_blank">100tipy</a>, 
+                                  <a href="https://github.com/lassa97/OSniffy" target="_blank">OSniffy</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="https://github.com/search?q=user%3Alassa97+language%3AShell&type=Repositories" target="_blank">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">Bash</div>
                             <div class="about_section">
@@ -247,11 +299,14 @@
                             </div>
                             <div class="bottom_section">
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 4+ years</span>
-                                <span><i class="fas fa-tags"></i>&nbsp; Tools</span>
+                                <span><i class="fas fa-tags"></i>
+                                  &nbsp; 
+                                  <a href="https://github.com/lassa97/Tools" target="_blank">Tools</a>
+                                </span>
                             </div>
                           </section>
-                        </a>
-                        <a href="">
+                        </div>
+                        <div class="link">
                           <section>
                             <div class="section_title">Linux</div>
                             <div class="about_section">
@@ -261,7 +316,7 @@
                                 <span style="display:inline-block;"><i class="fas fa-hourglass-half"></i>&nbsp; 4+ years</span>
                             </div>
                           </section>
-                        </a>    
+                        </div>
         </div>
       </div>
       <div id="projects">
@@ -356,7 +411,11 @@
         <div id="blogs"></div>
       </div>
       <div id="footer">
-        <span><img src="./media/lassault_icon.png" class="icon">&nbsp; © 2020 lassault</span>
+        <span style="display: block;"><img src="./media/lassault_icon.png" class="icon">&nbsp; © 2020 lassault</span>
+        <br>
+        <img src="https://img.shields.io/badge/MADE%20WITH-BEER%20%F0%9F%8D%BA-success?style=plastic&labelColor=123456">
+        <img src="https://img.shields.io/badge/CODED%20WITH-%E2%9D%A4%EF%B8%8F-FF69B4?style=plastic&labelColor=123456">
+        <img src="https://img.shields.io/badge/GLUTEN-FREE-yellow?style=plastic&labelColor=123456">
       </div>
     </div>
     <script type="text/javascript">
@@ -481,6 +540,71 @@
           style = "light";
         }
       }
+    </script>
+
+    <script>
+      function getSpotifyData() {
+        var request = new XMLHttpRequest();
+
+        request.open('GET', 'https://script.google.com/macros/s/AKfycbzQv0lNf7YmGithwv_nVeK9EwODvXyjaZTth6iw5mpC-vqvR94E/exec', true);
+        request.onload = function() {
+          // Begin accessing JSON data here
+          var data = JSON.parse(this.response)
+
+          if (request.status >= 200 && request.status < 400) {
+            var spotify_stats = document.getElementById("spotify-stats");
+            var spotify_track = document.getElementById("spotify-track");
+            var spotify_extra = document.getElementById("spotify-extra");
+            if (data.playing) {
+              spotify_stats.style.background = 'url("./media/equalizer.gif") no-repeat center';
+              spotify_stats.style.backgroundSize = "cover";
+              spotify_track.innerHTML = spotify_stats.innerHTML.replace("#icon", '<i class="fas fa-pause"></i>');
+            } else {
+              spotify_stats.style.background = `url(${data.album_cover}) no-repeat center`;
+              spotify_track.innerHTML = spotify_stats.innerHTML.replace("#icon", '<i class="fas fa-play"></i>');
+            }
+            spotify_track.innerHTML = spotify_track.innerHTML.replace("#stats", `${data.track} - ${data.artist}`);
+            spotify_stats.style.visibility = "visible";
+            console.log(data);
+          } else {
+            console.log('error')
+          }
+        }
+        request.send()
+      }
+
+      getSpotifyData()
+    </script>
+
+    <script>
+      function getCoffeerData() {
+        var request = new XMLHttpRequest()
+
+        request.open('GET', 'https://script.google.com/macros/s/AKfycbyLKXEwkTW8uUQMVrdf1hpBszzn-KYhwU5CMolZSYHn8JtTvFOP/exec', true)
+        request.onload = function() {
+          // Begin accessing JSON data here
+          var data = JSON.parse(this.response)
+
+          if (request.status >= 200 && request.status < 400) {
+            //var drink_stats = document.getElementById("drink-stats");
+            var coffee_stats = document.getElementById("coffee-stats");
+            var beer_stats = document.getElementById("beer-stats");
+            /*drink_stats.innerHTML = drink_stats.innerHTML.replace("#beers", data.beers);
+            drink_stats.innerHTML = drink_stats.innerHTML.replace("#coffees", data.coffees);
+            drink_stats.style.visibility = "visible";*/
+            coffee_stats.innerHTML = coffee_stats.innerHTML.replace("#", data.coffees);
+            coffee_stats.style.visibility = "visible";
+            beer_stats.innerHTML = beer_stats.innerHTML.replace("#", data.beers);
+            beer_stats.style.visibility = "visible";
+            console.log(data);
+          } else {
+            console.log('error')
+          }
+        }
+        request.send()
+      }
+
+      getCoffeerData()
     </script>
 
   </body>

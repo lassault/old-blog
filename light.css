@@ -355,6 +355,43 @@ body {
   font-size: 15px;
 }
 
+.skills {
+  margin-left: -15px;
+  /* align section w/ heading above */
+}
+
+.skills .link {
+  /* 30px is the gutter size in magic grid */
+  width: calc(49% - 30px);
+  /* 49% avoids a weird single column on some wide screens */
+  display: flex;
+}
+
+.skills a {
+  text-decoration: none;
+  color: black;
+}
+
+.skills section {
+  width: 100%;
+  padding: 2.5vh 5%;
+  margin: 1vh 0px;
+  display: inline-block;
+  border-radius: 5px;
+  color: var(--text-color);
+  border: 1px solid rgb(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 0px rgb(0, 0, 0, 0);
+  transition: 0.4s ease-in-out;
+  transform: scale(1);
+}
+
+.skills section:hover {
+  cursor: pointer;
+  border: 1px solid rgb(0, 0, 0, 0);
+  box-shadow: 0px 15px 35px rgb(0, 0, 0, 0.06);
+  transform: scale(1.03);
+}
+
 .socials {
   color: #fff;
   text-decoration: none;
@@ -472,6 +509,19 @@ body {
   }
 
   .projects section {
+    width: 88%;
+  }
+
+  .skills {
+    margin-left: 0;
+    /* remove neg margin to align w/ header */
+  }
+
+  .skills .link {
+    width: 100%;
+  }
+
+  .skills section {
     width: 88%;
   }
 
