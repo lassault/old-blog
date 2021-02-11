@@ -7,7 +7,7 @@ layout: default
   {%- assign page_paths = site.header_pages | default: default_paths -%}
 
   <div id="lander">
-    <img id="profile" src="{{ site.url }}{{ site.profile_picture | relative_url }}">
+    <img id="profile" src="{{ site.profile_picture | relative_url }}">
     <div id="personal-info">
       {%- if site.username -%}
         <p><i>{{ site.username }}</i></p>
