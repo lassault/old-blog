@@ -1,0 +1,40 @@
+title: "Fermin Lassa"
+username: "lassa97"
+profile_picture: "media/my_octocat.png"
+
+email: "fermin@lassa.net"
+description: >-
+  Personal portfolio and blog. Posts about programming and
+  cybersecurity.
+baseurl: ""
+url: "https://fermin.lassa.net"
+github_username: "lassa97"
+rss: "RSS Feed"
+
+# Post settings
+show_excerpts: true
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+exclude:
+  - about
+  - lassa97
+  - media
+  - projects.md

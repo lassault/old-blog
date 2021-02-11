@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+		<ul class="post-list">
+    {% comment %}
+    *
+    *  This loop loops through all public repositories
+    *  and sorts it by the front matter variable `updated_at` 
+    *  and than filters the collection with `reverse` in reverse order
+    *
+    {% endcomment %}
+    {% assign sorted = site.github.public_repositories | sort: 'updated_at' | reverse %}
+  	{% for repository in sorted %}
+      <li class="project {{ repository.language | escape | downcase | slugify }}">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">
+          {{ repository.created_at | date: date_format }}
+          -
+          last commit {{ repository.updated_at | date: date_format }}
+        </span>
+        <h3 class="title">
+          <a class="post-link no-tooltip" href="{{ repository.html_url }}">
+            {{ repository.name | escape }}
+          </a>
+        </h3>
+        <p class="description">
+          {{ repository.description | escape }}
+        </p>
+        {%- if repository.language -%}
+        <span class="language">
+          {{ repository.language | escape }}
+        </span>
+        {% endif %}
+        {%- if repository.license -%}
+        <span class="licence">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16" width="14" height="16"><path fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg>
+          {{ repository.license.spdx_id | escape }}
+        </span>
+        {% endif %}
+      </li>
+		{% endfor %}
+    </ul>	
+    {{ content }}
+  </div>
+
+</article>

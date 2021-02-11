@@ -1,0 +1,54 @@
+.project {
+  .title {
+    padding: 0;
+    margin: 0;
+  }
+  .language {
+    background-color: #f1f1f1;
+    padding: 0.1rem 0.3rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+  .licence {
+    background-color: #f1f1f1;
+    padding: 0.1rem 0.3rem;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .description {
+    margin-top: 5px;
+  }
+  border-left: solid 0.5rem black;
+  padding-left: 1rem;
+}
+
+@mixin language-mod($langColor, $textColor: white) {
+  .language {
+    background-color: $langColor;
+    color: $textColor;
+  }
+  border-left-color: $langColor;
+}
+
+.project.html {
+  @include language-mod(#e34c26);
+}
+.project.c {
+  @include language-mod(#555555);
+}
+.project.go {
+  @include language-mod(#00ADD8);
+}
+.project.javascript {
+  @include language-mod(#f1e05a);
+}
+.project.game-maker-language {
+  @include language-mod(#71b417);
+}
+.project.jupyter-notebook {
+  @include language-mod(#DA5B0B);
+}
+.project.shell {
+  @include language-mod(#89e051);
+}
