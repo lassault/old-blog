@@ -1,6 +1,6 @@
 title: "Fermin Lassa"
 username: "lassa97"
-profile_picture: "media/my_octocat.png"
+profile_picture: "./media/my_octocat.png"
 
 email: "fermin@lassa.net"
 description: >-
